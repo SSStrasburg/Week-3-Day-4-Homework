@@ -98,6 +98,43 @@ violationTypeArraySpecificViolations.forEach( function maxViolation(violationCod
 
 });
 
+////
+////
+////  Moving.js portion  index 17 has violationCode, index 16 has date
+
+
+let moving_data = './data/moving_jan_2016.csv';
+
+let movingUsableDataFormat = myParser(moving_data);
+let movingDataLineArray = myParser(moving_data);
+let MovingSplitUpStrings = myParser(moving_data);
+
+//console.log(usableDataFormat);
+
+console.log(movingUsableDataFormat[0]); // displays headers
+numberofColumns = movingUsableDataFormat[0].length; // counts number of columns
+console.log(movingUsableDataFormat.length);  //displays columns
+numberOfRows = movingUsableDataFormat.length;  // counts nummber of rows
+console.log(movingDataLineArray.length);    // displays rows
+console.log(movingUsableDataFormat[0].length);
+console.log(MovingSplitUpStrings.legth);
+//
+
+let xrow=0; //this will only get the emelent we want it blank
+let yheader=17;
+
+
+let headerViolationTypeObject = {};
+
+movingUsableDataFormat.forEach( function printRow(row /* , index, array */ ) {
+  if (violationTypeObject[ row[17] ]) {
+    violationTypeObject[ row[17] ]++;
+  } else {
+    violationTypeObject[ row[17] ] = 1;
+  }
+//pulls data from moving violations and outputs specific information for violation code
+
+
 
 
 //////////////////////
@@ -151,3 +188,4 @@ violationTypeArraySpecificViolations.forEach( function maxViolation(violationCod
     // console.log(stringValue);  // stringValue not contentsOfTheFile now
     //
     // } );  // look in the current directory.  Asynchronous.  what to do when it's done
+//
